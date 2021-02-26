@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="31_SMP:jar">
+    <output-path>B:/MC Server Soft/servers/Test SMP (1.16.5)/plugins</output-path>
+    <root id="archive" name="31_SMP.jar">
+      <element id="module-output" name="31_SMP" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../dependencies/spigot-api-1.16.5-R0.1-20210208.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

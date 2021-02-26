@@ -1,0 +1,27 @@
+name: SMP
+version: 1.00
+author: Daniel Zhuo
+main: com.sirdanieliii.SMP
+api-version: 1.15
+commands:
+  wand:
+    description: Spawns a mysterious wand - OP Needed
+    usage: /wand
+  ivan:
+    description: Spawns an Ivan (Donkey or Wolf) - OP Needed
+    usage: /ivan <type>
+  coords:
+    description: Saves coords so you won't get lost
+    usage: /coords <action> <type>
+    action:
+      set: Sets the player's current coordinate
+      list: Lists a saved coordinate (or all of them)
+      clear: Clears a specific saved coordinate
+    type:
+      home: For your home
+      netherportal: For your netherportal
+      other: For a miscellaneous coordinate
+      all: All of your saved coordinates
+  death:
+    description: Statistics about your deaths and murders :D
+    usage: /death <stat>
