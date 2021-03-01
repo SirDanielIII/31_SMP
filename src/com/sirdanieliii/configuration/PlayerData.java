@@ -22,7 +22,6 @@ public class PlayerData {
             ConfigManager.getConfig().set(player.getUniqueId().toString() + "." + "playerdeaths", 0.0D);
             ConfigManager.getConfig().set(player.getUniqueId().toString() + "." + "nonplayerdeath", 0.0D);
         }
-
     }
 
     public static void savePlayerCoords(Player player, String type) {

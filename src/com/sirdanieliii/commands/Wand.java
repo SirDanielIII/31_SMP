@@ -21,7 +21,7 @@ public class Wand implements CommandExecutor {
         }
         // Give Item
         if (cmd.getName().equalsIgnoreCase("wand")) {
-            Bukkit.broadcastMessage("§L§6A wand of the gods has been summoned...");
+            Bukkit.broadcastMessage("§6§OA wand of the gods has been summoned...");
             player.getInventory().addItem(ItemManager.wand);
         }
         return true;

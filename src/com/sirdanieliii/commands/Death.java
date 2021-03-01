@@ -6,10 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.text.DecimalFormat;
 import java.util.Random;
-
-import static java.lang.Math.round;
 
 public class Death implements CommandExecutor {
     @Override
@@ -26,24 +23,12 @@ public class Death implements CommandExecutor {
                 sender.sendMessage("§F>>> Stats: §Eplayer §F/ §Enonplayer §F/ §Eplayerkills §F/ §Etotal §F/ §Ekdr");
             } else if (args.length == 1) {
                 switch (args[0].toLowerCase()) {
-                    case ("murders"):
-                        murders(player, sender);
-                        break;
-                    case ("player"):
-                        playerDeaths(player, sender);
-                        break;
-                    case ("nonplayer"):
-                        nonPlayerDeaths(player, sender);
-                        break;
-                    case ("total"):
-                        totalDeaths(player, sender);
-                        break;
-                    case ("kdr"):
-                        kdr(player, sender);
-                        break;
-                    default:
-                        sender.sendMessage("§C[!] Invalid Stat: §Eplayer §F/ §Enonplayer §F/ §Emurders §F/ §Etotal §F/ §Ekdr");
-                        break;
+                    case ("murders") -> murders(player, sender);
+                    case ("player") -> playerDeaths(player, sender);
+                    case ("nonplayer") -> nonPlayerDeaths(player, sender);
+                    case ("total") -> totalDeaths(player, sender);
+                    case ("kdr") -> kdr(player, sender);
+                    default -> sender.sendMessage("§C[!] Invalid Stat: §Eplayer §F/ §Enonplayer §F/ §Emurders §F/ §Etotal §F/ §Ekdr");
                 }
             } else {
                 sender.sendMessage("§C[!] Invalid arguments: §F/death <stat>");
@@ -51,7 +36,6 @@ public class Death implements CommandExecutor {
         }
         return true;
     }
-
 
     public static void murders(Player player, CommandSender sender) {
         double kills = ConfigManager.getConfig().getDouble(player.getUniqueId().toString() + "." + "murders");
@@ -88,13 +72,12 @@ public class Death implements CommandExecutor {
         } else {
             ConfigManager.reload();
             if (deaths == 1) {
-                sender.sendMessage("§4[§FDeath§4] §EYou have died " + "§C" + "only once" + "§F due to " + randomDeathDescription());
+                sender.sendMessage("§4[§FDeath§4] §EYou have died " + "§C" + "only once!" + "§F due to " + randomDeathDescription());
             } else {
                 sender.sendMessage("§4[§FDeath§4] §EYou have died " + "§C" + (int) deaths + " times §Fdue to " + randomDeathDescription());
             }
         }
     }
-
 
     public static void totalDeaths(Player player, CommandSender sender) {
         double playerDeaths = ConfigManager.getConfig().getDouble(player.getUniqueId().toString() + "." + "playerdeaths");
@@ -112,9 +95,9 @@ public class Death implements CommandExecutor {
     public static void kdr(Player player, CommandSender sender) {
         double kills = ConfigManager.getConfig().getDouble(player.getUniqueId().toString() + "." + "murders");
         double playerDeaths = ConfigManager.getConfig().getDouble(player.getUniqueId().toString() + "." + "playerdeaths");
-        if (playerDeaths == 0) {
-            sender.sendMessage("§4[§FDeath§4] §FYour K/D ratio is §A" + 1.00);
-        } else {
+        if (playerDeaths == 0) sender.sendMessage("§4[§FDeath§4] §AYou need to have died to a player at least §EONCE " +
+                "\n§Abefore your K/D can be calculated");
+        else {
             double kd = kills / playerDeaths;
             if (kd < 0.5) {
                 sender.sendMessage("§4[§FDeath§4] §FYour K/D ratio is §C" + String.format("%.2f", kd));
@@ -143,6 +126,3 @@ public class Death implements CommandExecutor {
         return messages[idx];
     }
 }
-
-// /death <action> <type>
-// Action: player, nonplayer, playerkills, total, kdr

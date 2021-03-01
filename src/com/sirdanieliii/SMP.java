@@ -1,10 +1,7 @@
 package com.sirdanieliii;
 
-import com.sirdanieliii.commands.Coords;
-import com.sirdanieliii.commands.Death;
+import com.sirdanieliii.commands.*;
 import com.sirdanieliii.commands.tabcompletion.CoordsTab;
-import com.sirdanieliii.commands.Ivan;
-import com.sirdanieliii.commands.Wand;
 import com.sirdanieliii.commands.tabcompletion.DeathTab;
 import com.sirdanieliii.commands.tabcompletion.IvanTab;
 import com.sirdanieliii.configuration.ConfigManager;
@@ -36,5 +33,7 @@ public class SMP extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        this.getLogger().info("Cancelling tasks...");
+        this.getServer().getScheduler().cancelTasks(this);
     }
 }

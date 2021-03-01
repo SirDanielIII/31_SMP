@@ -45,14 +45,14 @@ public class Coords implements CommandExecutor {
                             savePlayerCoords(player, type);
                             ConfigManager.save();
                         } else {
-                            sender.sendMessage("§C[!] §EHey you're not in the §AOverworld!");
+                            sender.sendMessage("§C[!] §EHey you're not in the Overworld!");
                         }
                     } else if (Stream.of("portal", "nether").anyMatch(type::equalsIgnoreCase)) {
                         if (player.getWorld().getEnvironment() == World.Environment.NETHER) {
                             savePlayerCoords(player, type);
                             ConfigManager.save();
                         } else {
-                            sender.sendMessage("§C[!] §EHey you're not in the §DNether!");
+                            sender.sendMessage("§C[!] §EHey you're not in the Nether!");
                         }
                     } else {
                         sender.sendMessage("§C[!] Set: §Ahome §F/ §Aoverworld §F/ §Dportal §F/ §Dnether");

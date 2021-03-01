@@ -32,35 +32,31 @@ public class Ivan implements CommandExecutor {
             if (args.length == 1) {
                 try {
                     Vector offset = offsetFromDirection(player, 2.0D); // Calculates 2 block forward offset
-                    // Spawn Donkey
-                    if (args[0].equalsIgnoreCase("donkey")) {
-                        Donkey donkey = (Donkey) player.getWorld().spawnEntity(player.getLocation().add(offset), EntityType.DONKEY);
-                        donkey.setTamed(true);
-                        donkey.setOwner(player);
-                        donkey.setCustomName("Ivan");
-                        donkey.getInventory().setSaddle(new ItemStack(Material.SADDLE));
-                        donkey.setCarryingChest(true);
-                        donkey.setMaxHealth(30);
-                        donkey.setJumpStrength(0.75F);
-                    }
-                    // Spawn Wolf
-                    else if (args[0].equalsIgnoreCase("dog")) {
-                        Wolf wolf = (Wolf) player.getWorld().spawnEntity(player.getLocation().add(offset), EntityType.WOLF);
-                        wolf.setTamed(true);
-                        wolf.setOwner(player);
-                        wolf.setCustomName("Ivan");
-                        wolf.setCollarColor(DyeColor.LIGHT_BLUE);
-                        wolf.setSitting(true);
-                    }
-                    // Error Checking
-                    else {
-                        sender.sendMessage("§L§E[!] <type> must be \"donkey\" or \"dog\"");
+                    switch (args[0].toLowerCase()) {
+                        case ("donkey") -> {
+                            Donkey donkey = (Donkey) player.getWorld().spawnEntity(player.getLocation().add(offset), EntityType.DONKEY);
+                            donkey.setTamed(true);
+                            donkey.setOwner(player);
+                            donkey.setCustomName("Ivan");
+                            donkey.getInventory().setSaddle(new ItemStack(Material.SADDLE));
+                            donkey.setCarryingChest(true);
+                            donkey.setJumpStrength(0.75F);
+                        }
+                        case ("dog") -> {
+                            Wolf wolf = (Wolf) player.getWorld().spawnEntity(player.getLocation().add(offset), EntityType.WOLF);
+                            wolf.setTamed(true);
+                            wolf.setOwner(player);
+                            wolf.setCustomName("Ivan");
+                            wolf.setCollarColor(DyeColor.LIGHT_BLUE);
+                            wolf.setSitting(true);
+                        }
+                        default -> sender.sendMessage("§E[!] §F<type> must be §E\"donkey\" §For §E\"dog\"");
                     }
                 } catch (IllegalArgumentException e) {
-                    sender.sendMessage("§L§E[!] <type> must be \"donkey\" or \"dog\"");
+                    sender.sendMessage("§E[!] §F<type> must be §E\"donkey\" §For §E\"dog\"");
                 }
             } else {
-                sender.sendMessage("§L§C[!] /ivan <type>");
+                sender.sendMessage("§C[!] §E/ivan <type>");
             }
         }
         return true;

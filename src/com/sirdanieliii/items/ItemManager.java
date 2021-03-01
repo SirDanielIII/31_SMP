@@ -20,6 +20,7 @@ public class ItemManager {
         ItemStack item = new ItemStack(Material.STICK, 1);
         ItemMeta meta = item.getItemMeta();
         // Set Name
+        assert meta != null;
         meta.setDisplayName("§6§LWand");
         // Create Description
         List<String> lore = new ArrayList<>();
@@ -36,9 +37,5 @@ public class ItemManager {
         item.setItemMeta(meta);
         // Create Wand
         wand = item;
-
-        for (byte i = 0; i < 3; i++) {
-            System.out.print("C");
-        }
     }
 }
