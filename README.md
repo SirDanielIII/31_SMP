@@ -1,5 +1,5 @@
 # 31_SMP
-Plugin for the 31 SMP (Private SMP with friends)
+My personal plugin for the 31 SMP server I've been planning with my friends.
 
 Features: 
 1. /wand - Summons an OP Wand (Operators Only)
