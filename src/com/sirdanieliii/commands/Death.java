@@ -54,7 +54,7 @@ public class Death implements CommandExecutor {
     public static void playerDeaths(Player player, CommandSender sender) {
         double deaths = ConfigManager.getConfig().getDouble(player.getUniqueId().toString() + "." + "playerdeaths");
         if (deaths == 0) {
-            sender.sendMessage("§4[§FDeath§4] §CYou've never been killed by a player before :O");
+            sender.sendMessage("§4[§FDeath§4] §AYou've never been killed by a player before :O");
         } else {
             ConfigManager.reload();
             if (deaths == 1) {
@@ -84,7 +84,7 @@ public class Death implements CommandExecutor {
         double nonPlayerDeaths = ConfigManager.getConfig().getDouble(player.getUniqueId().toString() + "." + "nonplayerdeath");
         double total = playerDeaths + nonPlayerDeaths;
         if (total == 0.0) {
-            sender.sendMessage("§4[§FDeath§4] §AYou've never died before! §F(Congratulations!)");
+            sender.sendMessage("§4[§FDeath§4] §AYou've never died before!)");
         } else if (total == 1.0) {
             sender.sendMessage("§4[§FDeath§4] §EYou have died " + "§C" + "only once §Fin total!");
         } else {
