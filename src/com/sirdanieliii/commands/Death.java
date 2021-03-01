@@ -84,7 +84,7 @@ public class Death implements CommandExecutor {
         double nonPlayerDeaths = ConfigManager.getConfig().getDouble(player.getUniqueId().toString() + "." + "nonplayerdeath");
         double total = playerDeaths + nonPlayerDeaths;
         if (total == 0.0) {
-            sender.sendMessage("§4[§FDeath§4] §AYou've never died before! §F(You gotta die at least once man)");
+            sender.sendMessage("§4[§FDeath§4] §AYou've never died before! §F(Congratulations!)");
         } else if (total == 1.0) {
             sender.sendMessage("§4[§FDeath§4] §EYou have died " + "§C" + "only once §Fin total!");
         } else {
@@ -95,8 +95,7 @@ public class Death implements CommandExecutor {
     public static void kdr(Player player, CommandSender sender) {
         double kills = ConfigManager.getConfig().getDouble(player.getUniqueId().toString() + "." + "murders");
         double playerDeaths = ConfigManager.getConfig().getDouble(player.getUniqueId().toString() + "." + "playerdeaths");
-        if (playerDeaths == 0) sender.sendMessage("§4[§FDeath§4] §AYou need to have died to a player at least §EONCE " +
-                "\n§Abefore your K/D can be calculated");
+        if (playerDeaths == 0) sender.sendMessage("§4[§FDeath§4] §7You need to have died to a player at least ONCE");
         else {
             double kd = kills / playerDeaths;
             if (kd < 0.5) {

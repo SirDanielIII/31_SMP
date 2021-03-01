@@ -10,6 +10,7 @@ public class PlayerData {
         // First Time Player Data Section Generation
         if (!ConfigManager.getConfig().contains(player.getUniqueId().toString())) {
             ConfigManager.getConfig().createSection(player.getUniqueId().toString());
+            ConfigManager.getConfig().createSection(player.getUniqueId().toString() + ".name");
             ConfigManager.getConfig().createSection(player.getUniqueId().toString() + ".home");
             ConfigManager.getConfig().createSection(player.getUniqueId().toString() + ".overworld");
             ConfigManager.getConfig().createSection(player.getUniqueId().toString() + ".portal");
@@ -21,6 +22,10 @@ public class PlayerData {
             ConfigManager.getConfig().set(player.getUniqueId().toString() + "." + "murders", 0.0D);
             ConfigManager.getConfig().set(player.getUniqueId().toString() + "." + "playerdeaths", 0.0D);
             ConfigManager.getConfig().set(player.getUniqueId().toString() + "." + "nonplayerdeath", 0.0D);
+        }
+        // Update Player Name
+        if (!player.getName().equalsIgnoreCase(String.valueOf(ConfigManager.getConfig().contains(player.getUniqueId().toString() + ".name")))) {
+            ConfigManager.getConfig().set(player.getUniqueId().toString() + "." + "name", player.getName());
         }
     }
 
