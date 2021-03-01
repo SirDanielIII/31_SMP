@@ -1,8 +1,8 @@
 name: SMP
-version: 1.0
+version: 1.01
 author: Daniel Zhuo
 main: com.sirdanieliii.SMP
-api-version: 1.15
+api-version: 1.16
 commands:
   wand:
     description: Spawns a mysterious wand - OP Needed
