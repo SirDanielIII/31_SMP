@@ -6,7 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.Random;
+import static com.sirdanieliii.events.Utilities.randomMessage;
 
 public class Death implements CommandExecutor {
     @Override
@@ -16,7 +16,6 @@ public class Death implements CommandExecutor {
             return true;
         }
         Player player = (Player) sender;
-        // Spawn Ivan
         if (cmd.getName().equalsIgnoreCase("death")) {
             if (args.length == 0) {
                 sender.sendMessage("§C[!] Missing 1 argument: §E/death <stat>");
@@ -40,13 +39,13 @@ public class Death implements CommandExecutor {
     public static void murders(Player player, CommandSender sender) {
         double kills = ConfigManager.getConfig().getDouble(player.getUniqueId().toString() + "." + "murders");
         if (kills == 0.0) {
-            sender.sendMessage("§4[§FDeath§4] §EYou've never been killed anybody before :O");
+            sender.sendMessage("§4[§FDeath§4] §7You've never been killed anybody before :O");
         } else {
             ConfigManager.reload();
             if (kills == 1.0) {
-                sender.sendMessage("§4[§FDeath§4] §EYou have " + randomKillDescription() + " §A" + (int) kills + " person!");
+                sender.sendMessage("§4[§FDeath§4] §FYou have " + randomMessage("kill") + " §A" + (int) kills + " person!");
             } else {
-                sender.sendMessage("§4[§FDeath§4] §EYou have " + randomKillDescription() + " §A" + (int) kills + " people!");
+                sender.sendMessage("§4[§FDeath§4] §FYou have " + randomMessage("kill") + " §A" + (int) kills + " people!");
             }
         }
     }
@@ -58,9 +57,9 @@ public class Death implements CommandExecutor {
         } else {
             ConfigManager.reload();
             if (deaths == 1) {
-                sender.sendMessage("§4[§FDeath§4] §EYou have been " + randomKillDescription() + " §C" + (int) deaths + " time!");
+                sender.sendMessage("§4[§FDeath§4] §FYou have been " + randomMessage("kill") + " §Conce!");
             } else {
-                sender.sendMessage("§4[§FDeath§4] §EYou have been " + randomKillDescription() + " §C" + (int) deaths + " times!");
+                sender.sendMessage("§4[§FDeath§4] §FYou have been " + randomMessage("kill") + " §C" + (int) deaths + " times!");
             }
         }
     }
@@ -68,13 +67,13 @@ public class Death implements CommandExecutor {
     public static void nonPlayerDeaths(Player player, CommandSender sender) {
         double deaths = ConfigManager.getConfig().getDouble(player.getUniqueId().toString() + "." + "nonplayerdeath");
         if (deaths == 0) {
-            sender.sendMessage("§4[§FDeath§4] §AYou've never died to " + randomDeathDescription() + " before!");
+            sender.sendMessage("§4[§FDeath§4] §AYou've never died to " + randomMessage("death") + " before!");
         } else {
             ConfigManager.reload();
             if (deaths == 1) {
-                sender.sendMessage("§4[§FDeath§4] §EYou have died " + "§C" + "only once!" + "§F due to " + randomDeathDescription());
+                sender.sendMessage("§4[§FDeath§4] §FYou have died " + "§C" + "only once!" + "§F due to " + randomMessage("death"));
             } else {
-                sender.sendMessage("§4[§FDeath§4] §EYou have died " + "§C" + (int) deaths + " times §Fdue to " + randomDeathDescription());
+                sender.sendMessage("§4[§FDeath§4] §FYou have died " + "§C" + (int) deaths + " times §Fdue to " + randomMessage("death"));
             }
         }
     }
@@ -86,9 +85,9 @@ public class Death implements CommandExecutor {
         if (total == 0.0) {
             sender.sendMessage("§4[§FDeath§4] §AYou've never died before!)");
         } else if (total == 1.0) {
-            sender.sendMessage("§4[§FDeath§4] §EYou have died " + "§C" + "only once §Fin total!");
+            sender.sendMessage("§4[§FDeath§4] §FYou have died " + "§C" + "only once §Fin total!");
         } else {
-            sender.sendMessage("§4[§FDeath§4] §EYou have died " + "§C" + (int) total + " times §Fin total! Imagine.");
+            sender.sendMessage("§4[§FDeath§4] §FYou have died " + "§C" + (int) total + " times §Fin total! Imagine.");
         }
     }
 
@@ -106,22 +105,5 @@ public class Death implements CommandExecutor {
                 sender.sendMessage("§4[§FDeath§4] §FYour K/D ratio is §A" + String.format("%.2f", kd));
             }
         }
-    }
-
-    public static String randomKillDescription() {
-        // Random message
-        String[] messages = {"brutally murdered", "slaughtered", "booty clapped", "massacred", "slayed"};
-        Random r = new Random();
-        int idx = r.nextInt(messages.length);
-        return messages[idx];
-    }
-
-    public static String randomDeathDescription() {
-        // Random message
-        String[] messages = {"your own stupidity", "the de-evolution of the human species", "lack of skill", "incompetence",
-                "not getting gooder"};
-        Random r = new Random();
-        int idx = r.nextInt(messages.length);
-        return messages[idx];
     }
 }

@@ -12,7 +12,7 @@ import org.bukkit.entity.Wolf;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
-import static com.sirdanieliii.events.CardinalDirection.offsetFromDirection;
+import static com.sirdanieliii.events.Utilities.offsetFromDirection;
 
 public class Ivan implements CommandExecutor {
     @Override

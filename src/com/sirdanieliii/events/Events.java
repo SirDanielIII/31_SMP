@@ -20,7 +20,8 @@ import java.util.Objects;
 import java.util.Random;
 
 import static com.sirdanieliii.configuration.PlayerData.createPlayerSections;
-import static com.sirdanieliii.events.CardinalDirection.offsetFromDirection;
+import static com.sirdanieliii.events.Utilities.offsetFromDirection;
+import static com.sirdanieliii.events.Utilities.randomMessage;
 
 public class Events implements Listener {
     @EventHandler
@@ -33,15 +34,9 @@ public class Events implements Listener {
     //Player Join Message
     public static void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        // Random message
-        String[] messages = {"gay", "homophobic", "trans", "an attack helicopter", "Special Snowflake", "douchebaggette", "virgin", "an object",
-                "Joe Biden", "Obama's first name", "a CHUBBY CHEEK BOY HONDA CIVIC", "Ivan (yes that's an insult)", "stupido",
-                "in needs of getting gooder"};
-        Random r = new Random();
-        int idx = r.nextInt(messages.length);
-        // Broadcast Message
+        String message = randomMessage("join");
         event.setJoinMessage("§EWelcome to the SMP Test Server " + player.getName() + ", " +
-                "\n§R§Cyou are " + messages[idx] + " :)");
+                "\n§R§Cyou are " + message + " :)");
         createPlayerSections(player);
         ConfigManager.save();
     }
@@ -51,14 +46,8 @@ public class Events implements Listener {
     public static void onPlayerSleep(final PlayerBedEnterEvent event) {
         if (event.getBedEnterResult() == PlayerBedEnterEvent.BedEnterResult.OK) {
             Player player = event.getPlayer();
-            // Random message
-            String[] messages = {"fallen asleep", "dozed off dreaming", "crashed like Sir Daniel's PC", "gone AWOL...", "committed sleep",
-                    "initiated hibernation", "started snoozing like a chad", "gone out like a lamp", "started crying themselves to sleep",
-                    "remembered that they are an orphan, \nand is now sleeping while contemplating the meaning of life"};
-            Random r = new Random();
-            int idx = r.nextInt(messages.length);
-            // Broadcast Message
-            Bukkit.broadcastMessage("§B" + player.getName() + " has " + messages[idx]);
+            String message = randomMessage("sleep");
+            Bukkit.broadcastMessage("§B" + player.getName() + " has " + message);
         }
     }
 
@@ -72,14 +61,14 @@ public class Events implements Listener {
             if (event.getItem() != null) {
                 if (Objects.equals(event.getItem().getItemMeta(), ItemManager.wand.getItemMeta())) {
                     Player player = event.getPlayer();
-                    player.getWorld().createExplosion(event.getClickedBlock().getLocation(), 3.0F);
-                    player.getWorld().strikeLightning(event.getClickedBlock().getLocation());
+                    player.getWorld().createExplosion(Objects.requireNonNull(event.getClickedBlock()).getLocation(), 3.0F);
+                    player.getWorld().strikeLightning(Objects.requireNonNull(event.getClickedBlock()).getLocation());
                 }
             }
         }
         // Fireballs
         if (event.getAction() == Action.RIGHT_CLICK_AIR) {
-            if (Objects.equals(event.getItem().getItemMeta(), ItemManager.wand.getItemMeta())) {
+            if (Objects.equals(Objects.requireNonNull(event.getItem()).getItemMeta(), ItemManager.wand.getItemMeta())) {
                 Player player = event.getPlayer();
                 Fireball fire = player.getWorld().spawn(event.getPlayer().getLocation().add(new Vector(0.0D, 1.5D, 0.0D))
                         .add(offsetFromDirection(player, 1.1D)), Fireball.class);
@@ -93,7 +82,7 @@ public class Events implements Listener {
     public static void onPlayerDeathEvent(PlayerDeathEvent event) {
         Player player = event.getEntity();
         Player killer = player.getKiller();
-        if (killer instanceof Player) {
+        if (killer != null) {
             // Add to death count
             double deaths = ConfigManager.getConfig().getDouble(player.getUniqueId().toString() + "." + "playerdeaths");
             deaths += 1.0D;
