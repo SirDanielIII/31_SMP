@@ -17,7 +17,6 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.util.Vector;
 
 import java.util.Objects;
-import java.util.Random;
 
 import static com.sirdanieliii.configuration.PlayerData.createPlayerSections;
 import static com.sirdanieliii.events.Utilities.offsetFromDirection;
