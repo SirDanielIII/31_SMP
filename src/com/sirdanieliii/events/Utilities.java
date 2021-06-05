@@ -58,15 +58,15 @@ public class Utilities {
                 String[] joinMessages = {"gay", "homophobic", "trans", "an attack helicopter", "Special Snowflake", "douchebaggette",
                         "virgin", "an object", "Joe Biden", "Obama's last name", "a CHUBBY CHEEK BOY HONDA CIVIC",
                         "Ivan (yes that's an insult)", "stupido", "in needs of getting gooder", "a shoe truck", "a biznatch",
-                        "an orangutan", "breathing", player.getDisplayName(), "the one who knocks",
-                        "Dude have you ever listened to Nacho Libre- I am I am ft. Nacho Libre from the 2006 hit film Nacho Libre? " +
-                                "Fun fact about the 2006 hit film Nacho Libre, Nacho Libre is played by Jack Black, an Jack also sings Nacho Libre- " +
-                                "I am I am ft. Nacho Libre from the 2006 hit film Nacho Libre so really Nacho Libre- I am I am ft. " +
-                                "Nacho Libre from the 2006 hit film Nacho Libre should be called Nacho Libre- I am I am ft. Jack Black from the " +
-                                "2006 hit film Nacho Libre",
-                        "cyka blyat", "the ring Daniel will give Sophia", "a donkey", "not Best Boy", "the ring Forrest will give Billie",
+                        "an orangutan", "breathing", player.getDisplayName(), "the one who knocks", "a cyka blyat", "the ring Daniel will give Sophia",
+                        "a donkey", "not Best Boy", "the ring Forrest will give Billie",
                         "a hot tub streamer", "not deserving of an insult", "not wearing socks"};
                 return joinMessages[new Random().nextInt(joinMessages.length)];
+            }
+            case ("quit") -> {
+                String[] quitMessages = {"pussied out", "folded", "got put down", "went to go get a girlfriend", "dipped", "got COVID-19",
+                        "went to find their dad at the grocery store", ""};
+                return quitMessages[new Random().nextInt(quitMessages.length)];
             }
             case ("sleep") -> {
                 String[] sleepMessage = {"fallen asleep", "dozed off dreaming", "crashed like Sir Daniel's PC", "gone AWOL...", "committed sleep",

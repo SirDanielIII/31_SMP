@@ -12,6 +12,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerBedEnterEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.server.ServerListPingEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.util.Vector;
@@ -34,10 +35,21 @@ public class Events implements Listener {
     public static void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         String message = randomMessage("join", player);
-        event.setJoinMessage("§EWelcome to the 31 SMP " + player.getName() + ", " +
-                "\n§R§Fyou are " + message + " :)");
+        event.setJoinMessage("§E" + player.getName() + " is " + message + " :)");
         createPlayerSections(player);
         ConfigManager.save();
+        player.sendTitle("Hello There", "§6Welcome to the 31 SMP", 20, 70, 20);
+    }
+
+    @EventHandler
+    //Player Quit Message
+    public static void onPlayerLeave(PlayerQuitEvent event) {
+        Player player = event.getPlayer();
+        String message = randomMessage("quit", player);
+        event.setQuitMessage("§4" + player.getName() + " " + message);
+        createPlayerSections(player);
+        ConfigManager.save();
+        player.sendTitle("Hello There", "§6Welcome to the 31 SMP", 20, 70, 20);
     }
 
     @EventHandler
