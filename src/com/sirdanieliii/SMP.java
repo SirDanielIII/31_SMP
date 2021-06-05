@@ -21,7 +21,6 @@ public class SMP extends JavaPlugin {
         // Create Custom Items
         ItemManager.init();
         // Custom Commands
-        getCommand("wand").setExecutor(new Wand());
         getCommand("ivan").setExecutor(new Ivan());
         getCommand("coords").setExecutor(new Coords());
         getCommand("death").setExecutor(new Death());

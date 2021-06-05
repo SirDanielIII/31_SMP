@@ -1,18 +1,15 @@
 name: SMP
-version: 1.02
+version: 1.03
 author: Sir Daniel III
 main: com.sirdanieliii.SMP
 api-version: 1.16
 commands:
-  wand:
-    description: <OP Required> Spawns a weapon of the Gods...
-    usage: /wand
-  ivan:
-    description: <OP Required> Spawns an Ivan (Donkey or Dog)
-    usage: /ivan <type>
   coords:
     description: Saves coords so you won't get lost
     usage: /coords <action> <type>
   death:
     description: Statistics about your deaths and murders :D
     usage: /death <stat>
+  ivan:
+    description: <OP Required> Spawns an Ivan (Donkey or Dog)
+    usage: /ivan <type>

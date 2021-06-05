@@ -26,16 +26,16 @@ public class Events implements Listener {
     @EventHandler
     public void onServerListPing(ServerListPingEvent event) {
         event.setMotd("§6§L[" + "§FTEST SMP" + "§6§L]" + "§A BIG BONG CHING CHONG" +
-                "\n§C§O>>> Currently under development");
+                "\n§C§O>>> 31 SMP Coming Soon :D");
     }
 
     @EventHandler
     //Player Join Message
     public static void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        String message = randomMessage("join");
-        event.setJoinMessage("§EWelcome to the SMP Test Server " + player.getName() + ", " +
-                "\n§R§Cyou are " + message + " :)");
+        String message = randomMessage("join", player);
+        event.setJoinMessage("§EWelcome to the 31 SMP " + player.getName() + ", " +
+                "\n§R§Fyou are " + message + " :)");
         createPlayerSections(player);
         ConfigManager.save();
     }
@@ -45,11 +45,10 @@ public class Events implements Listener {
     public static void onPlayerSleep(final PlayerBedEnterEvent event) {
         if (event.getBedEnterResult() == PlayerBedEnterEvent.BedEnterResult.OK) {
             Player player = event.getPlayer();
-            String message = randomMessage("sleep");
+            String message = randomMessage("sleep", player);
             Bukkit.broadcastMessage("§B" + player.getName() + " has " + message);
         }
     }
-
 
     @EventHandler
     // Wand

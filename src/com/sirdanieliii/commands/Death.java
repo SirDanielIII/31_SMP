@@ -43,9 +43,9 @@ public class Death implements CommandExecutor {
         } else {
             ConfigManager.reload();
             if (kills == 1.0) {
-                sender.sendMessage("§4[§FDeath§4] §FYou have " + randomMessage("kill") + " §A" + (int) kills + " person!");
+                sender.sendMessage("§4[§FDeath§4] §FYou have " + randomMessage("kill", player) + " §A" + (int) kills + " person!");
             } else {
-                sender.sendMessage("§4[§FDeath§4] §FYou have " + randomMessage("kill") + " §A" + (int) kills + " people!");
+                sender.sendMessage("§4[§FDeath§4] §FYou have " + randomMessage("kill", player) + " §A" + (int) kills + " people!");
             }
         }
     }
@@ -57,9 +57,9 @@ public class Death implements CommandExecutor {
         } else {
             ConfigManager.reload();
             if (deaths == 1) {
-                sender.sendMessage("§4[§FDeath§4] §FYou have been " + randomMessage("kill") + " §Conce!");
+                sender.sendMessage("§4[§FDeath§4] §FYou have been " + randomMessage("kill", player) + " §Conce!");
             } else {
-                sender.sendMessage("§4[§FDeath§4] §FYou have been " + randomMessage("kill") + " §C" + (int) deaths + " times!");
+                sender.sendMessage("§4[§FDeath§4] §FYou have been " + randomMessage("kill", player) + " §C" + (int) deaths + " times!");
             }
         }
     }
@@ -67,13 +67,13 @@ public class Death implements CommandExecutor {
     public static void nonPlayerDeaths(Player player, CommandSender sender) {
         double deaths = ConfigManager.getConfig().getDouble(player.getUniqueId().toString() + "." + "nonplayerdeath");
         if (deaths == 0) {
-            sender.sendMessage("§4[§FDeath§4] §AYou've never died to " + randomMessage("death") + " before!");
+            sender.sendMessage("§4[§FDeath§4] §AYou've never died to " + randomMessage("death", player) + " before!");
         } else {
             ConfigManager.reload();
             if (deaths == 1) {
-                sender.sendMessage("§4[§FDeath§4] §FYou have died " + "§C" + "only once!" + "§F due to " + randomMessage("death"));
+                sender.sendMessage("§4[§FDeath§4] §FYou have died " + "§C" + "only once!" + "§F due to " + randomMessage("death", player));
             } else {
-                sender.sendMessage("§4[§FDeath§4] §FYou have died " + "§C" + (int) deaths + " times §Fdue to " + randomMessage("death"));
+                sender.sendMessage("§4[§FDeath§4] §FYou have died " + "§C" + (int) deaths + " times §Fdue to " + randomMessage("death", player));
             }
         }
     }

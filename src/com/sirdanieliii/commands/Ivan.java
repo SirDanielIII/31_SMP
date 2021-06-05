@@ -2,6 +2,7 @@ package com.sirdanieliii.commands;
 
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -41,6 +42,7 @@ public class Ivan implements CommandExecutor {
                             donkey.getInventory().setSaddle(new ItemStack(Material.SADDLE));
                             donkey.setCarryingChest(true);
                             donkey.setJumpStrength(0.75F);
+                            player.playSound(player.getLocation(), Sound.ENTITY_DONKEY_AMBIENT, 1, 3);
                         }
                         case ("dog") -> {
                             Wolf wolf = (Wolf) player.getWorld().spawnEntity(player.getLocation().add(offset), EntityType.WOLF);
@@ -49,6 +51,7 @@ public class Ivan implements CommandExecutor {
                             wolf.setCustomName("Ivan");
                             wolf.setCollarColor(DyeColor.LIGHT_BLUE);
                             wolf.setSitting(true);
+                            player.playSound(player.getLocation(), Sound.ENTITY_WOLF_PANT, 1, 1);
                         }
                         default -> sender.sendMessage("§E[!] §F<type> must be §E\"donkey\" §For §E\"dog\"");
                     }
@@ -62,4 +65,3 @@ public class Ivan implements CommandExecutor {
         return true;
     }
 }
-
