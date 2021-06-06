@@ -6,7 +6,6 @@ import com.sirdanieliii.commands.tabcompletion.DeathTab;
 import com.sirdanieliii.commands.tabcompletion.IvanTab;
 import com.sirdanieliii.configuration.ConfigManager;
 import com.sirdanieliii.events.Events;
-import com.sirdanieliii.items.ItemManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
@@ -18,12 +17,10 @@ public class SMP extends JavaPlugin {
         ConfigManager.save();
         // Initialize Events
         getServer().getPluginManager().registerEvents(new Events(), this);
-        // Create Custom Items
-        ItemManager.init();
         // Custom Commands
-        getCommand("ivan").setExecutor(new Ivan());
-        getCommand("coords").setExecutor(new Coords());
-        getCommand("death").setExecutor(new Death());
+        getCommand("ivan").setExecutor(new CommandManager());
+        getCommand("coords").setExecutor(new CommandManager());
+        getCommand("death").setExecutor(new CommandManager());
         // Tab Completion
         getCommand("ivan").setTabCompleter(new IvanTab());
         getCommand("coords").setTabCompleter(new CoordsTab());

@@ -55,35 +55,53 @@ public class Utilities {
     public static String randomMessage(String type, Player player) {
         switch (type) {
             case ("join") -> {
-                String[] joinMessages = {"gay", "homophobic", "trans", "an attack helicopter", "Special Snowflake", "douchebaggette",
-                        "virgin", "an object", "Joe Biden", "Obama's last name", "a CHUBBY CHEEK BOY HONDA CIVIC",
+                String[] joinMessages = {"gay", "homophobic", "trans", "an attack helicopter", "a Special Snowflake", "a douchebaggette",
+                        "a virgin", "an object", "Joe Biden", "Obama's last name", "a CHUBBY CHEEK BOY HONDA CIVIC",
                         "Ivan (yes that's an insult)", "stupido", "in needs of getting gooder", "a shoe truck", "a biznatch",
                         "an orangutan", "breathing", player.getDisplayName(), "the one who knocks", "a cyka blyat", "the ring Daniel will give Sophia",
-                        "a donkey", "not Best Boy", "the ring Forrest will give Billie",
-                        "a hot tub streamer", "not deserving of an insult", "not wearing socks"};
+                        "a donkey", "not Best Boy", "the ring Forrest will give Billie", "a toaster", "the imposter", "an absolute chad",
+                        "a hot tub streamer", "not deserving of an insult", "not wearing socks", "a silly little goose", "aware that they poop"};
                 return joinMessages[new Random().nextInt(joinMessages.length)];
             }
             case ("quit") -> {
                 String[] quitMessages = {"pussied out", "folded", "got put down", "went to go get a girlfriend", "dipped", "got COVID-19",
-                        "went to find their dad at the grocery store", ""};
+                        "went to find their dad at the grocery store", "Looked at Zev Gershon Rule 34", "left the game", "didn't want to play anymore",
+                "liked men", "§KLISDFHDFZIOUGHDRIOUGHDOUH", "went to go kiss Shrek's big green ballsack", "was cringe and left",
+                        "went to go calculate the physics moles in a diluted solution, graphed in a wave"};
                 return quitMessages[new Random().nextInt(quitMessages.length)];
             }
             case ("sleep") -> {
                 String[] sleepMessage = {"fallen asleep", "dozed off dreaming", "crashed like Sir Daniel's PC", "gone AWOL...", "committed sleep",
                         "initiated hibernation", "started snoozing like a chad", "gone out like a lamp", "started crying themselves to sleep",
-                        "remembered that they are an orphan, \nand is now sleeping while contemplating the meaning of life", "sleeping"};
+                        "remembered that they are an orphan, \nand is now sleeping while contemplating the meaning of life", "started sleeping",
+                "thinking of how dogwater they are at Fortnite", "napping", "dreaming", "having a nightmare"};
                 return sleepMessage[new Random().nextInt(sleepMessage.length)];
             }
-            case ("kill") -> {
-                String[] killDescription = {"brutally murdered", "slaughtered", "booty clapped", "massacred", "slayed"};
+            case ("kill") -> { // Describing player kills
+                String[] killDescription = {"brutally murdered", "slaughtered", "booty clapped", "massacred", "slayed", "shitted on", "waffle stomped",
+                "cummed on", "dookie'ed on", "360 OOGA BOOGA BOOGA'ED"};
                 return killDescription[new Random().nextInt(killDescription.length)];
             }
-            case ("death") -> {
+            case ("death") -> { // Describing deaths (not including PVP)
                 String[] deathDescription = {"your own stupidity", "the de-evolution of the human species", "lack of skill", "incompetence",
                         "not getting gooder"};
                 return deathDescription[new Random().nextInt(deathDescription.length)];
             }
         }
         return null;
+    }
+    public static String toTitleCase(String input) {
+        StringBuilder titleCase = new StringBuilder(input.length());
+        boolean nextTitleCase = true;
+        for (char c : input.toLowerCase().toCharArray()) {
+            if (!Character.isLetterOrDigit(c)) {
+                nextTitleCase = true;
+            } else if (nextTitleCase) {
+                c = Character.toTitleCase(c);
+                nextTitleCase = false;
+            }
+            titleCase.append(c);
+        }
+        return titleCase.toString();
     }
 }
