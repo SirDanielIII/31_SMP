@@ -15,6 +15,7 @@ public class CoordsTab implements TabCompleter {
             actions.add("set");
             actions.add("list");
             actions.add("clear");
+            actions.add("send");
             return actions;
         } else if (args.length == 2) {
             List<String> types = new ArrayList<>();

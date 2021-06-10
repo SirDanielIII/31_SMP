@@ -29,7 +29,7 @@ public class coordsClear extends SubCommand {
     public void perform(Player player, String[] args) {
         String type = args[1].toLowerCase();
         if (Stream.of("home", "overworld", "portal", "nether").anyMatch(type::equalsIgnoreCase)) {
-            ConfigManager.getConfig().set(player.getUniqueId().toString() + "." + type, new Array[]{});
+            ConfigManager.getConfig().set(player.getUniqueId() + "." + type, new Array[]{});
             if (Stream.of("home", "overworld").anyMatch(type::equalsIgnoreCase)) {
                 player.sendMessage("§6[§FCoords§6] §A" + toTitleCase(type) + " §Fcoordinate cleared successfully");
             } else {
@@ -37,10 +37,10 @@ public class coordsClear extends SubCommand {
             }
             ConfigManager.save();
         } else if (type.equalsIgnoreCase("all")) {
-            ConfigManager.getConfig().set(player.getUniqueId().toString() + "." + "home", new Array[]{});
-            ConfigManager.getConfig().set(player.getUniqueId().toString() + "." + "overworld", new Array[]{});
-            ConfigManager.getConfig().set(player.getUniqueId().toString() + "." + "portal", new Array[]{});
-            ConfigManager.getConfig().set(player.getUniqueId().toString() + "." + "nether", new Array[]{});
+            ConfigManager.getConfig().set(player.getUniqueId() + "." + "home", new Array[]{});
+            ConfigManager.getConfig().set(player.getUniqueId() + "." + "overworld", new Array[]{});
+            ConfigManager.getConfig().set(player.getUniqueId() + "." + "portal", new Array[]{});
+            ConfigManager.getConfig().set(player.getUniqueId() + "." + "nether", new Array[]{});
             ConfigManager.save();
             player.sendMessage("§6[§FCoords§6] §B" + "All" + " §Fcoordinates cleared successfully");
         } else {

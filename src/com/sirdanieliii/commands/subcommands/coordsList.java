@@ -28,16 +28,16 @@ public class coordsList extends SubCommand {
     public void perform(Player player, String[] args) {
         String type = args[1].toLowerCase();
         if (Stream.of("home", "overworld").anyMatch(type::equalsIgnoreCase)) {
-            player.sendMessage("§6[§FCoords§6] §A" + toTitleCase(type) + " " + retrievePlayerCoords(player, type));
+            player.sendMessage("§6[§FCoords§6] §A" + toTitleCase(type) + " " + retrievePlayerCoords(player, type, "§F", "§E", "§C"));
         } else if (Stream.of("nether").anyMatch(type::equalsIgnoreCase)) {
-            player.sendMessage("§6[§FCoords§6] §D" + toTitleCase(type) + " " + retrievePlayerCoords(player, type));
+            player.sendMessage("§6[§FCoords§6] §D" + toTitleCase(type) + " " + retrievePlayerCoords(player, type, "§F", "§E", "§C"));
         } else if (Stream.of("portal").anyMatch(type::equalsIgnoreCase)) {
-            player.sendMessage("§6[§FCoords§6] §D" + "Nether Portal " + retrievePlayerCoords(player, type));
+            player.sendMessage("§6[§FCoords§6] §D" + "Nether Portal " + retrievePlayerCoords(player, type, "§F", "§E", "§C"));
         } else if (Stream.of("all").anyMatch(type::equalsIgnoreCase)) {
-            player.sendMessage("§6[§FCoords§6] §A" + "Home " + retrievePlayerCoords(player, "home"));
-            player.sendMessage("§6[§FCoords§6] §A" + "Overworld " + retrievePlayerCoords(player, "overworld"));
-            player.sendMessage("§6[§FCoords§6] §D" + "Nether Portal " + retrievePlayerCoords(player, "portal"));
-            player.sendMessage("§6[§FCoords§6] §D" + "Nether " + retrievePlayerCoords(player, "nether"));
+            player.sendMessage("§6[§FCoords§6] §A" + "Home " + retrievePlayerCoords(player, "home", "§F", "§E", "§C"));
+            player.sendMessage("§6[§FCoords§6] §A" + "Overworld " + retrievePlayerCoords(player, "overworld", "§F", "§E", "§C"));
+            player.sendMessage("§6[§FCoords§6] §D" + "Nether Portal " + retrievePlayerCoords(player, "portal", "§F", "§E", "§C"));
+            player.sendMessage("§6[§FCoords§6] §D" + "Nether " + retrievePlayerCoords(player, "nether", "§F", "§E", "§C"));
         } else {
             player.sendMessage("§C[!] List Types: §Ahome §F/ §Aoverworld §F/ §Dportal §F/ §Dnether §F/ §Ball");
         }

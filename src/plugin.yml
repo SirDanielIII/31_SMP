@@ -1,5 +1,5 @@
 name: SMP
-version: 1.04
+version: 1.05
 author: Sir Daniel III
 main: com.sirdanieliii.SMP
 api-version: 1.16
@@ -13,3 +13,6 @@ commands:
   ivan:
     description: <OP Required> Spawns an Ivan (Donkey or Dog)
     usage: /ivan <type>
+#  wand:
+#    description: <OP Required> Spawns a weapon of the Gods...
+#    usage: /wand

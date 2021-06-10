@@ -20,6 +20,7 @@ public class CommandManager implements CommandExecutor {
         subcommands.add(new coordsSet());
         subcommands.add(new coordsList());
         subcommands.add(new coordsClear());
+        subcommands.add(new coordsSend());
         subcommands.add(new deathMurders());
         subcommands.add(new deathPVP());
         subcommands.add(new deathNonPVP());
@@ -64,8 +65,10 @@ public class CommandManager implements CommandExecutor {
                 player.sendMessage("§C[!] Clear Types: §Ahome §F/ §Aoverworld §F/ §Dportal §F/ §Dnether §F/ §Ball");
             } else if (args[0].equalsIgnoreCase("set")) {
                 player.sendMessage("§C[!] Set Types: §Ahome §F/ §Aoverworld §F/ §Dportal §F/ §Dnether");
+            } else if (args[0].equalsIgnoreCase("send")) {
+                player.sendMessage("§C[!] Send Types: §Ahome §F/ §Aoverworld §F/ §Dportal §F/ §Dnether §F/ §Ball");
             } else {
-                player.sendMessage("§C[!] Action: §Eset §F/ §Elist §F/ §Eclear");
+                player.sendMessage("§C[!] Action: §Eset §F/ §Elist §F/ §Eclear §F/ §Esend");
             }
         } else if (cmd.equalsIgnoreCase("death")) {
             player.sendMessage("§C[!] Statistics: §Eplayer §F/ §Enonplayer §F/ §Emurders §F/ §Etotal §F/ §Ekdr");
@@ -81,12 +84,13 @@ public class CommandManager implements CommandExecutor {
             player.sendMessage(getSubcommands().get(2).getSyntax() + " - " + getSubcommands().get(2).getDescription());
             player.sendMessage(getSubcommands().get(3).getSyntax() + " - " + getSubcommands().get(3).getDescription());
             player.sendMessage(getSubcommands().get(4).getSyntax() + " - " + getSubcommands().get(4).getDescription());
-        } else if (cmd.equalsIgnoreCase("death")) {
             player.sendMessage(getSubcommands().get(5).getSyntax() + " - " + getSubcommands().get(5).getDescription());
+        } else if (cmd.equalsIgnoreCase("death")) {
             player.sendMessage(getSubcommands().get(6).getSyntax() + " - " + getSubcommands().get(6).getDescription());
             player.sendMessage(getSubcommands().get(7).getSyntax() + " - " + getSubcommands().get(7).getDescription());
             player.sendMessage(getSubcommands().get(8).getSyntax() + " - " + getSubcommands().get(8).getDescription());
             player.sendMessage(getSubcommands().get(9).getSyntax() + " - " + getSubcommands().get(9).getDescription());
+            player.sendMessage(getSubcommands().get(10).getSyntax() + " - " + getSubcommands().get(10).getDescription());
         }
         player.sendMessage("------------------------------------------");
     }

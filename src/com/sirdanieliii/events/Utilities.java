@@ -64,17 +64,17 @@ public class Utilities {
                 return joinMessages[new Random().nextInt(joinMessages.length)];
             }
             case ("quit") -> {
-                String[] quitMessages = {"pussied out", "folded", "got put down", "went to go get a girlfriend", "dipped", "got COVID-19",
-                        "went to find their dad at the grocery store", "Looked at Zev Gershon Rule 34", "left the game", "didn't want to play anymore",
+                String[] quitMessages = {"pussied out", "folded", "went to go get a girlfriend", "dipped", "got COVID-19", "quit the game",
+                        "went to find their dad at the grocery store", "looked at Zev Gershon Rule 34 and left", "left the game", "didn't want to play anymore",
                 "liked men", "§KLISDFHDFZIOUGHDRIOUGHDOUH", "went to go kiss Shrek's big green ballsack", "was cringe and left",
-                        "went to go calculate the physics moles in a diluted solution, graphed in a wave"};
+                        "went to go get graphed as a wave function"};
                 return quitMessages[new Random().nextInt(quitMessages.length)];
             }
             case ("sleep") -> {
                 String[] sleepMessage = {"fallen asleep", "dozed off dreaming", "crashed like Sir Daniel's PC", "gone AWOL...", "committed sleep",
                         "initiated hibernation", "started snoozing like a chad", "gone out like a lamp", "started crying themselves to sleep",
                         "remembered that they are an orphan, \nand is now sleeping while contemplating the meaning of life", "started sleeping",
-                "thinking of how dogwater they are at Fortnite", "napping", "dreaming", "having a nightmare"};
+                "started dreaming of how dogwater they are at Fortnite", "started napping", "started dreaming", "started having a nightmare"};
                 return sleepMessage[new Random().nextInt(sleepMessage.length)];
             }
             case ("kill") -> { // Describing player kills
