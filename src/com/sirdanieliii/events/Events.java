@@ -1,25 +1,15 @@
 package com.sirdanieliii.events;
 
 import com.sirdanieliii.configuration.ConfigManager;
-import com.sirdanieliii.items.ItemManager;
 import org.bukkit.Bukkit;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Fireball;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerBedEnterEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.server.ServerListPingEvent;
-import org.bukkit.inventory.EquipmentSlot;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.util.Vector;
-
-import java.util.Objects;
 
 import static com.sirdanieliii.configuration.PlayerData.createPlayerSections;
 import static com.sirdanieliii.events.Utilities.randomMessage;
@@ -66,22 +56,22 @@ public class Events implements Listener {
         Player killer = player.getKiller();
         if (killer != null) {
             // Add to death count
-            double deaths = ConfigManager.getConfig().getDouble(player.getUniqueId().toString() + "." + "playerdeaths");
+            double deaths = ConfigManager.getConfig().getDouble(player.getUniqueId() + "." + "playerdeaths");
             deaths += 1.0D;
-            ConfigManager.getConfig().set(player.getUniqueId().toString() + "." + "playerdeaths", deaths);
+            ConfigManager.getConfig().set(player.getUniqueId() + "." + "playerdeaths", deaths);
             // Add to kill count
-            double kills = ConfigManager.getConfig().getDouble(killer.getUniqueId().toString() + "." + "murders");
+            double kills = ConfigManager.getConfig().getDouble(killer.getUniqueId() + "." + "murders");
             kills += 1.0D;
-            ConfigManager.getConfig().set(killer.getUniqueId().toString() + "." + "murders", kills);
+            ConfigManager.getConfig().set(killer.getUniqueId() + "." + "murders", kills);
         } else {
-            double deaths = ConfigManager.getConfig().getDouble(player.getUniqueId().toString() + "." + "nonplayerdeath");
+            double deaths = ConfigManager.getConfig().getDouble(player.getUniqueId() + "." + "nonplayerdeath");
             deaths += 1.0D;
-            ConfigManager.getConfig().set(player.getUniqueId().toString() + "." + "nonplayerdeath", deaths);
+            ConfigManager.getConfig().set(player.getUniqueId() + "." + "nonplayerdeath", deaths);
         }
         ConfigManager.save();
     }
 
-//    @EventHandler
+    //    @EventHandler
 //    public static void powers(PlayerInteractEvent event) {
 //        EquipmentSlot hand = event.getHand();
 //        Player player;

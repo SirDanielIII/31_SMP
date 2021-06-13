@@ -19,12 +19,12 @@ public class SMP extends JavaPlugin {
         // Initialize Events
         getServer().getPluginManager().registerEvents(new Events(), this);
         // Custom Members
-//        ItemManager.init();
+        ItemManager.init();
         // Custom Commands
         getCommand("ivan").setExecutor(new CommandManager());
         getCommand("coords").setExecutor(new CommandManager());
         getCommand("death").setExecutor(new CommandManager());
-//        getCommand("wand").setExecutor(new Wand());
+        getCommand("wand").setExecutor(new Wand());
         // Tab Completion
         getCommand("ivan").setTabCompleter(new IvanTab());
         getCommand("coords").setTabCompleter(new CoordsTab());
