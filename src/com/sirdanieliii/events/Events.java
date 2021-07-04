@@ -103,7 +103,9 @@ public class Events implements Listener {
         if (event.getCause() == PlayerTeleportEvent.TeleportCause.END_PORTAL) {
             Player player = event.getPlayer();
             event.setCancelled(true);
-            player.playSound(player.getLocation(), Sound.ENTITY_WITHER_AMBIENT, 60, 29);
+            for (Player p : Bukkit.getOnlinePlayers()) {
+                player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 40, 29);
+            }
         }
     }
 }
