@@ -5,6 +5,7 @@ Features:
 1. /ivan - Summons an Ivan (Operators Only)
 2. /coords - Coordinate Saves System (4 Slots)
 3. /death - Death/Kill Statistics
-4. /wand - Overpowered wand (disabled by default)
+4. /wand - Overpowered wand
+5. /smp - Displays all commands in the plugin
 
 I went into making this plugin blind, barely knowing any Java. Probably wasn't the best idea but meh.
