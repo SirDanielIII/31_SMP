@@ -7,7 +7,6 @@ import java.util.Objects;
 import java.util.Random;
 
 public class Utilities {
-    // Get Direction
     public static String getCardinalDirection(Player event) {
         double rotation = (event.getLocation().getYaw() - 90) % 360;
         if (rotation < 0) {

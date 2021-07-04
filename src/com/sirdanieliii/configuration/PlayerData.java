@@ -124,7 +124,8 @@ public class PlayerData {
     public static void kdr(Player player) {
         double kills = ConfigManager.getConfig().getDouble(player.getUniqueId() + "." + "murders");
         double playerDeaths = ConfigManager.getConfig().getDouble(player.getUniqueId() + "." + "playerdeaths");
-        if (playerDeaths == 0) player.sendMessage("§4[§FDeath§4] §7You need to have died to a player at least ONCE");
+        if (kills == 0) player.sendMessage("§4[§FDeath§4] §FYou haven't killed anybody yet!");
+        if (playerDeaths == 0) playerDeaths = 1; // Fix Math Error When Diving By Zero
         else {
             double kd = kills / playerDeaths;
             if (kd < 0.5) {

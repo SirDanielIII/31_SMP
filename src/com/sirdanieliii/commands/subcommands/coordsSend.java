@@ -1,13 +1,10 @@
 package com.sirdanieliii.commands.subcommands;
 
 import com.sirdanieliii.commands.SubCommand;
-import com.sirdanieliii.configuration.ConfigManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.UUID;
 import java.util.stream.Stream;
 
 import static com.sirdanieliii.configuration.PlayerData.retrievePlayerCoords;
@@ -21,12 +18,12 @@ public class coordsSend extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Sends a specific coordinate to other player(s)";
+        return "§7Sends a specific coordinate to other player(s)";
     }
 
     @Override
     public String getSyntax() {
-        return "/coords send <type> <player> [optional players]";
+        return "§6/coords send <type> <player> [optional players]\n";
     }
 
     @Override

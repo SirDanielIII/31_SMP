@@ -17,12 +17,12 @@ public class coordsSet extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Saves a coordinate in a specific slot";
+        return "§7Saves a coordinate in a specific slot";
     }
 
     @Override
     public String getSyntax() {
-        return "/coords set <type>";
+        return "§6/coords set <type>";
     }
 
     @Override

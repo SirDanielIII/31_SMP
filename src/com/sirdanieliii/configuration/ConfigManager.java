@@ -6,6 +6,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 
 public class ConfigManager {
     private static File file;
@@ -13,7 +14,7 @@ public class ConfigManager {
 
     // Finds or generates the custom config file
     public static void setup() {
-        file = new File(Bukkit.getServer().getPluginManager().getPlugin("SMP").getDataFolder(), "data.yml");
+        file = new File(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("31_SMP")).getDataFolder(), "data.yml");
 
         if (!file.exists()) {
             try {

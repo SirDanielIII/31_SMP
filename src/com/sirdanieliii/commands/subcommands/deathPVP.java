@@ -13,12 +13,12 @@ public class deathPVP extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Shows death count from PVP";
+        return "§7Shows death count from PVP";
     }
 
     @Override
     public String getSyntax() {
-        return "/death player";
+        return "§4/death player";
     }
 
     @Override

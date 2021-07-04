@@ -24,6 +24,7 @@ public class SMP extends JavaPlugin {
         getCommand("ivan").setExecutor(new CommandManager());
         getCommand("coords").setExecutor(new CommandManager());
         getCommand("death").setExecutor(new CommandManager());
+        getCommand("SMP").setExecutor(new ShowAllCommands());
         getCommand("wand").setExecutor(new Wand());
         // Tab Completion
         getCommand("ivan").setTabCompleter(new IvanTab());

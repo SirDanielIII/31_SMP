@@ -3,15 +3,13 @@ package com.sirdanieliii.events;
 import com.sirdanieliii.configuration.ConfigManager;
 import com.sirdanieliii.items.ItemManager;
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.player.PlayerBedEnterEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.*;
 import org.bukkit.event.server.ServerListPingEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
@@ -25,8 +23,8 @@ import static com.sirdanieliii.events.Utilities.randomMessage;
 public class Events implements Listener {
     @EventHandler
     public void onServerListPing(ServerListPingEvent event) {
-        event.setMotd("§6§L[" + "§FTEST SMP" + "§6§L]" + "§A BIG BONG CHING CHONG" +
-                "\n§C§O>>> 31 SMP Coming Soon :D");
+        event.setMotd("           §6§L31 SMP §F[§A1.17§F] §F[§CWHITELIST ONLY§F]" +
+                "\n§E    ▷ With Proximity Chat & Bedrock Support ◁");
     }
 
     @EventHandler
@@ -80,20 +78,32 @@ public class Events implements Listener {
     }
 
     @EventHandler
-    public static void powers(PlayerInteractEvent event) {
+    public static void powers(PlayerInteractEvent event) { // Wand Powers
         EquipmentSlot hand = event.getHand();
         Player player;
-        if (event.getAction() == Action.RIGHT_CLICK_BLOCK && Objects.equals(hand, EquipmentSlot.HAND) && event.getItem() != null && Objects.equals(event.getItem().getItemMeta(), ItemManager.wand.getItemMeta())) {
+        if (event.getAction() == Action.RIGHT_CLICK_BLOCK && Objects.equals(hand, EquipmentSlot.HAND) && event.getItem() != null &&
+                Objects.equals(event.getItem().getItemMeta(), ItemManager.wand.getItemMeta())) {
             player = event.getPlayer();
             player.getWorld().createExplosion((Objects.requireNonNull(event.getClickedBlock())).getLocation(), 3.0F);
             player.getWorld().strikeLightning((Objects.requireNonNull(event.getClickedBlock())).getLocation());
         }
 
-        if (event.getAction() == Action.RIGHT_CLICK_AIR && Objects.equals(((ItemStack) Objects.requireNonNull(event.getItem())).getItemMeta(), ItemManager.wand.getItemMeta())) {
+        if (event.getAction() == Action.RIGHT_CLICK_AIR && Objects.equals(((ItemStack) Objects.requireNonNull(event.getItem())).getItemMeta(),
+                ItemManager.wand.getItemMeta())) {
             player = event.getPlayer();
-            Fireball fire = player.getWorld().spawn(event.getPlayer().getLocation().add(new Vector(0.0D, 1.5D, 0.0D)).add(Utilities.offsetFromDirection(player, 1.1D)), Fireball.class);
+            Fireball fire = player.getWorld().spawn(event.getPlayer().getLocation().add(new Vector(0.0D, 1.5D, 0.0D))
+                    .add(Utilities.offsetFromDirection(player, 1.1D)), Fireball.class);
             fire.setFireTicks(0);
             fire.setShooter(player);
+        }
+    }
+
+    @EventHandler
+    public static void disableEndPortal(PlayerPortalEvent event) {
+        if (event.getCause() == PlayerTeleportEvent.TeleportCause.END_PORTAL) {
+            Player player = event.getPlayer();
+            event.setCancelled(true);
+            player.playSound(player.getLocation(), Sound.ENTITY_WITHER_AMBIENT, 60, 29);
         }
     }
 }

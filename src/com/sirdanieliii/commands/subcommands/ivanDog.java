@@ -18,12 +18,12 @@ public class ivanDog extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Spawns a dog named \"Ivan\"";
+        return "§C[OP] §7Spawns a dog named \"Ivan\"";
     }
 
     @Override
     public String getSyntax() {
-        return "/ivan dog";
+        return "§B/ivan dog";
     }
 
     @Override
@@ -36,6 +36,6 @@ public class ivanDog extends SubCommand {
         wolf.setCollarColor(DyeColor.LIGHT_BLUE);
         wolf.setSitting(true);
         player.playSound(player.getLocation(), Sound.ENTITY_WOLF_PANT, 1, 1);
-        player.sendMessage("§B[§FIvan§B] §FA little Ivan has spawned");
+        player.sendMessage("§B[§FIvan§B] §FYou have spawned a little Ivan!");
     }
 }

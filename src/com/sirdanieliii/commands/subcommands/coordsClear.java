@@ -17,12 +17,12 @@ public class coordsClear extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Clears a specific coordinate slot";
+        return "§7Clears a specific coordinate slot";
     }
 
     @Override
     public String getSyntax() {
-        return "/coords clear <type>";
+        return "§6/coords clear <type>";
     }
 
     @Override

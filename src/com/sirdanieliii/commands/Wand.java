@@ -6,12 +6,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 public class Wand implements CommandExecutor {
-    public Wand() {
-    }
-
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender instanceof Player)) {
             sender.sendMessage("§C[!] Sorry, but only OP'ed players can use this command");
@@ -24,11 +20,18 @@ public class Wand implements CommandExecutor {
             } else {
                 if (cmd.getName().equalsIgnoreCase("wand")) {
                     Bukkit.broadcastMessage("§6§OA wand of the gods has been summoned...");
-                    player.getInventory().addItem(new ItemStack[]{ItemManager.wand});
+                    player.getInventory().addItem(ItemManager.wand);
                 }
-
                 return true;
             }
         }
+    }
+
+    public static String getDescription() {
+        return "§C[OP] §7Spawns powerful a wand of the gods";
+    }
+
+    public static String getSyntax() {
+        return "§D/wand";
     }
 }

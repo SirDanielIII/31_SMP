@@ -16,12 +16,12 @@ public class coordsList extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Lists a saved coordinate";
+        return "§7Lists a saved coordinate";
     }
 
     @Override
     public String getSyntax() {
-        return "/coords list <type>";
+        return "§6/coords list <type>";
     }
 
     @Override

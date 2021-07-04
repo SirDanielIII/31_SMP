@@ -29,8 +29,8 @@ public class ItemManager {
         lore.add("§EThey who hold this wand ");
         lore.add("§Ecannot comprehend its full power...");
         meta.setLore(lore);
-        meta.addEnchant(Enchantment.DAMAGE_ALL, 10, true);
-        meta.addEnchant(Enchantment.KNOCKBACK, 10, true);
+        meta.addEnchant(Enchantment.DAMAGE_ALL, 15, true);
+        meta.addEnchant(Enchantment.KNOCKBACK, 12, true);
         meta.addEnchant(Enchantment.FIRE_ASPECT, 10, true);
         meta.addEnchant(Enchantment.LOOT_BONUS_MOBS, 5, true);
         meta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ENCHANTS});

@@ -1,8 +1,8 @@
-name: SMP
-version: 1.05.1
+name: 31_SMP
+version: 2.00
 author: Sir Daniel III
 main: com.sirdanieliii.SMP
-api-version: 1.17
+api-version: 1.16
 commands:
   coords:
     description: Saves coords so you won't get lost
@@ -14,5 +14,8 @@ commands:
     description: <OP Required> Spawns an Ivan (Donkey or Dog)
     usage: /ivan <type>
   wand:
-    description: <OP Required> Spawns a weapon of the Gods...
+    description: <OP Required> Spawns a weapon of the Gods
     usage: /wand
+  SMP:
+    description: Displays all 31 SMP plugin commands
+    usage: /SMP

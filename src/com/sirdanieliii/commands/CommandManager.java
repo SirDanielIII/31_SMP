@@ -7,36 +7,49 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static com.sirdanieliii.events.Utilities.toTitleCase;
 
 public class CommandManager implements CommandExecutor {
 
-    private final ArrayList<SubCommand> subcommands = new ArrayList<>();
+    static Map<String, List<SubCommand>> subcommands = new HashMap<String, List<SubCommand>>();
+    List<SubCommand> ivan = new ArrayList<>();
+    List<SubCommand> coords = new ArrayList<>();
+    List<SubCommand> death = new ArrayList<>();
 
     public CommandManager() {
-        subcommands.add(new ivanDog());
-        subcommands.add(new ivanDonkey());
-        subcommands.add(new coordsSet());
-        subcommands.add(new coordsList());
-        subcommands.add(new coordsClear());
-        subcommands.add(new coordsSend());
-        subcommands.add(new deathMurders());
-        subcommands.add(new deathPVP());
-        subcommands.add(new deathNonPVP());
-        subcommands.add(new deathTotal());
-        subcommands.add(new deathKDR());
+        ivan.add(new ivanDog());
+        ivan.add(new ivanDonkey());
+        coords.add(new coordsSet());
+        coords.add(new coordsList());
+        coords.add(new coordsClear());
+        coords.add(new coordsSend());
+        death.add(new deathMurders());
+        death.add(new deathPVP());
+        death.add(new deathNonPVP());
+        death.add(new deathTotal());
+        death.add(new deathKDR());
+        subcommands.put("ivan", ivan);
+        subcommands.put("coords", coords);
+        subcommands.put("death", death);
+    }
+
+    public static ArrayList<SubCommand> getSubcommands(String key) {
+        return (ArrayList<SubCommand>) subcommands.get(key);
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (sender instanceof Player p) {
             boolean present = false;
             if (args.length > 0) {
                 try {
-                    for (int i = 0; i < getSubcommands().size(); i++) {
-                        if (args[0].equalsIgnoreCase(getSubcommands().get(i).getName())) {
-                            getSubcommands().get(i).perform(p, args);
+                    for (int i = 0; i < getSubcommands(cmd.getName()).size(); i++) {
+                        if (args[0].equalsIgnoreCase(getSubcommands(cmd.getName()).get(i).getName())) {
+                            getSubcommands(cmd.getName()).get(i).perform(p, args);
                             present = true;
                         }
                     }
@@ -49,10 +62,6 @@ public class CommandManager implements CommandExecutor {
             }
         }
         return true;
-    }
-
-    public ArrayList<SubCommand> getSubcommands() {
-        return subcommands;
     }
 
     public void incorrectFirstArg(Player player, String cmd, String args[]) {
@@ -75,23 +84,22 @@ public class CommandManager implements CommandExecutor {
         }
     }
 
-    public void displayCommands(Player player, String cmd) { // I'm hardcoding screw this
+    public static void displayCommands(Player player, String cmd) {
         player.sendMessage("--------------§6§L" + toTitleCase(cmd) + "§R§F----------------------");
-        if (cmd.equalsIgnoreCase("ivan")) {
-            player.sendMessage(getSubcommands().get(0).getSyntax() + " - " + getSubcommands().get(0).getDescription());
-            player.sendMessage(getSubcommands().get(1).getSyntax() + " - " + getSubcommands().get(1).getDescription());
-        } else if (cmd.equalsIgnoreCase("coords")) {
-            player.sendMessage(getSubcommands().get(2).getSyntax() + " - " + getSubcommands().get(2).getDescription());
-            player.sendMessage(getSubcommands().get(3).getSyntax() + " - " + getSubcommands().get(3).getDescription());
-            player.sendMessage(getSubcommands().get(4).getSyntax() + " - " + getSubcommands().get(4).getDescription());
-            player.sendMessage(getSubcommands().get(5).getSyntax() + " - " + getSubcommands().get(5).getDescription());
-        } else if (cmd.equalsIgnoreCase("death")) {
-            player.sendMessage(getSubcommands().get(6).getSyntax() + " - " + getSubcommands().get(6).getDescription());
-            player.sendMessage(getSubcommands().get(7).getSyntax() + " - " + getSubcommands().get(7).getDescription());
-            player.sendMessage(getSubcommands().get(8).getSyntax() + " - " + getSubcommands().get(8).getDescription());
-            player.sendMessage(getSubcommands().get(9).getSyntax() + " - " + getSubcommands().get(9).getDescription());
-            player.sendMessage(getSubcommands().get(10).getSyntax() + " - " + getSubcommands().get(10).getDescription());
+        for (SubCommand i : subcommands.get(cmd)) {
+            player.sendMessage(i.getSyntax() + " §7→ " + i.getDescription());
         }
         player.sendMessage("------------------------------------------");
+    }
+
+    public static void displayAllCommands(Player player) {
+        player.sendMessage("--------------§6§L" + "31 SMP Commands" + "§R§F----------------------");
+        for (List<SubCommand> i : subcommands.values()) {
+            for (SubCommand subCommand : i) {
+                player.sendMessage(subCommand.getSyntax() + " §7→ " + subCommand.getDescription());
+            }
+        }
+        player.sendMessage(Wand.getSyntax() + " §7→ " + Wand.getDescription());
+        player.sendMessage("----------------------------------------------------");
     }
 }

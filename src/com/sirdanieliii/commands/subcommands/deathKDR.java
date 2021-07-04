@@ -13,12 +13,12 @@ public class deathKDR extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Shows you your kill-death ratio";
+        return "§7Shows you your kill-death ratio";
     }
 
     @Override
     public String getSyntax() {
-        return "/death kdr";
+        return "§4/death kdr";
     }
 
     @Override

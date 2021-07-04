@@ -13,12 +13,12 @@ public class deathTotal extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Shows your total death count";
+        return "§7Shows your total death count";
     }
 
     @Override
     public String getSyntax() {
-        return "/death total";
+        return "§4/death total";
     }
 
     @Override

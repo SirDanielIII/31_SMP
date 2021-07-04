@@ -19,12 +19,12 @@ public class ivanDonkey extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Spawns a donkey named \"Ivan\"";
+        return "§C[OP] §7Spawns a donkey named \"Ivan\"";
     }
 
     @Override
     public String getSyntax() {
-        return "/ivan donkey";
+        return "§B/ivan donkey";
     }
 
     @Override
@@ -38,6 +38,6 @@ public class ivanDonkey extends SubCommand {
         donkey.setCarryingChest(true);
         donkey.setJumpStrength(0.75F);
         player.playSound(player.getLocation(), Sound.ENTITY_DONKEY_AMBIENT, 1, 1);
-        player.sendMessage("§B[§FIvan§B] §FA stoopid Ivan has spawned");
+        player.sendMessage("§B[§FIvan§B] §FYou have spawned a stoopid Ivan!");
     }
 }

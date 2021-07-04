@@ -14,12 +14,12 @@ public class deathNonPVP extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Shows death count, excluding PVP";
+        return "§7Shows death count, excluding PVP";
     }
 
     @Override
     public String getSyntax() {
-        return "/death nonplayer";
+        return "§4/death nonplayer";
     }
 
     @Override
