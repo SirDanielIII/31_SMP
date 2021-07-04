@@ -9,4 +9,4 @@ Features:
 5. /smp - Displays all commands in the plugin
 
 Note:
-This SMP disables the use of End Portals (it's not a bug, it's a feature 😌)
+This plugin disables the use of End Portals (it's not a bug, it's a feature 😌)
