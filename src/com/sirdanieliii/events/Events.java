@@ -104,7 +104,7 @@ public class Events implements Listener {
             Player player = event.getPlayer();
             event.setCancelled(true);
             for (Player p : Bukkit.getOnlinePlayers()) {
-                player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 40, 29);
+                p.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 40, 29);
             }
         }
     }

@@ -59,36 +59,39 @@ public class Utilities {
                         "Ivan (yes that's an insult)", "stupido", "in needs of getting gooder", "a shoe truck", "a biznatch",
                         "an orangutan", "breathing", player.getDisplayName(), "the one who knocks", "a cyka blyat", "the ring Daniel will give Sophia",
                         "a donkey", "not Best Boy", "the ring Forrest will give Billie", "a toaster", "the imposter", "an absolute chad",
-                        "a hot tub streamer", "not deserving of an insult", "not wearing socks", "a silly little goose", "aware that they poop"};
+                        "a hot tub streamer", "not deserving of an insult", "not wearing socks", "a silly little goose", "aware that they poop",
+                        "awesome", "racist", "adopted", "a poopyhead"};
                 return joinMessages[new Random().nextInt(joinMessages.length)];
             }
             case ("quit") -> {
-                String[] quitMessages = {"pussied out", "folded", "went to go get a girlfriend", "dipped", "got COVID-19", "quit the game",
-                        "went to find their dad at the grocery store", "looked at Zev Gershon Rule 34 and left", "left the game", "didn't want to play anymore",
-                "liked men", "§KLISDFHDFZIOUGHDRIOUGHDOUH", "went to go kiss Shrek's big green ballsack", "was cringe and left",
-                        "went to go get graphed as a wave function"};
+                String[] quitMessages = {"pussied out", "folded", "went to go get a girlfriend", "dipped", "got COVID-19 and went to go quarantine",
+                        "quit the game", "went to find their dad at the grocery store", "looked at Zev Gershon Rule 34 and left", "left the game",
+                        "didn't want to play anymore", "liked men and ran away", "§KLISD FH DFZIO UGHDRIO", "went to go kiss Shrek's big green ballsack",
+                        "was cringe and left", "went to go get graphed as a sin function", "clapped themself", "got cancelled", "went to go take a shit"};
                 return quitMessages[new Random().nextInt(quitMessages.length)];
             }
             case ("sleep") -> {
                 String[] sleepMessage = {"fallen asleep", "dozed off dreaming", "crashed like Sir Daniel's PC", "gone AWOL...", "committed sleep",
                         "initiated hibernation", "started snoozing like a chad", "gone out like a lamp", "started crying themselves to sleep",
                         "remembered that they are an orphan, \nand is now sleeping while contemplating the meaning of life", "started sleeping",
-                "started dreaming of how dogwater they are at Fortnite", "started napping", "started dreaming", "started having a nightmare"};
+                        "started dreaming of how dogwater they are at Fortnite", "started napping", "started dreaming", "started having a nightmare",
+                        "start dreaming about getting a girlfriend"};
                 return sleepMessage[new Random().nextInt(sleepMessage.length)];
             }
             case ("kill") -> { // Describing player kills
                 String[] killDescription = {"brutally murdered", "slaughtered", "booty clapped", "massacred", "slayed", "shitted on", "waffle stomped",
-                "cummed on", "dookie'ed on", "360 OOGA BOOGA BOOGA'ED"};
+                        "cummed on", "dookie'ed on", "360 OOGA BOOGA BOOGA'ED", "murked"};
                 return killDescription[new Random().nextInt(killDescription.length)];
             }
             case ("death") -> { // Describing deaths (not including PVP)
                 String[] deathDescription = {"your own stupidity", "the de-evolution of the human species", "lack of skill", "incompetence",
-                        "not getting gooder"};
+                        "not getting gooder", "being dogwater", "not having any earnings"};
                 return deathDescription[new Random().nextInt(deathDescription.length)];
             }
         }
         return null;
     }
+
     public static String toTitleCase(String input) {
         StringBuilder titleCase = new StringBuilder(input.length());
         boolean nextTitleCase = true;
