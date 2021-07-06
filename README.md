@@ -8,4 +8,5 @@ Features:
 4. /wand - Overpowered wand
 5. /smp - Displays all commands in the plugin
 
-I went into making this plugin blind, barely knowing any Java. Probably wasn't the best idea but meh.
+Note:
+This plugin disables the use of End Portals (it's not a bug, it's a feature 😌)
