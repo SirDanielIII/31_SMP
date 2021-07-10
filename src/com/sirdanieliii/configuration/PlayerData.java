@@ -113,7 +113,7 @@ public class PlayerData {
         double nonPlayerDeaths = ConfigManager.getConfig().getDouble(player.getUniqueId() + "." + "nonplayerdeath");
         double total = playerDeaths + nonPlayerDeaths;
         if (total == 0.0) {
-            player.sendMessage("§4[§FDeath§4] §AYou've never died before!)");
+            player.sendMessage("§4[§FDeath§4] §AYou've never died before!");
         } else if (total == 1.0) {
             player.sendMessage("§4[§FDeath§4] §FYou have died " + "§C" + "only once §Fin total!");
         } else {
