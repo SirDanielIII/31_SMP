@@ -62,7 +62,7 @@ public class PlayerData {
         if (x == null) {
             return notSet + "is not set";
         } else {
-            return isAt + "is at "+ xyzColour + x + " " + y + " " + z;
+            return isAt + "is at " + xyzColour + x + " " + y + " " + z;
         }
     }
 
@@ -125,9 +125,13 @@ public class PlayerData {
         double kills = ConfigManager.getConfig().getDouble(player.getUniqueId() + "." + "murders");
         double playerDeaths = ConfigManager.getConfig().getDouble(player.getUniqueId() + "." + "playerdeaths");
         if (kills == 0) player.sendMessage("§4[§FDeath§4] §FYou haven't killed anybody yet!");
-        if (playerDeaths == 0) playerDeaths = 1; // Fix Math Error When Diving By Zero
         else {
-            double kd = kills / playerDeaths;
+            // Calculate K/D
+            double kd = 0;
+            if (kills != 0 && playerDeaths == 0) {
+                kd = kills;  // Fix Math Error When Diving By Zero
+            } else kd = kills / playerDeaths;
+            // Display K/D
             if (kd < 0.5) {
                 player.sendMessage("§4[§FDeath§4] §FYour K/D ratio is §C" + String.format("%.2f", kd));
             } else if (kd > 0.5 && kd < 1.0) {
