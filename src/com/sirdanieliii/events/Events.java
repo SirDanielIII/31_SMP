@@ -84,15 +84,15 @@ public class Events implements Listener {
         if (event.getAction() == Action.RIGHT_CLICK_BLOCK && Objects.equals(hand, EquipmentSlot.HAND) && event.getItem() != null &&
                 Objects.equals(event.getItem().getItemMeta(), ItemManager.wand.getItemMeta())) {
             player = event.getPlayer();
-            player.getWorld().createExplosion((Objects.requireNonNull(event.getClickedBlock())).getLocation(), 3.0F);
             player.getWorld().strikeLightning((Objects.requireNonNull(event.getClickedBlock())).getLocation());
+            player.getWorld().createExplosion((Objects.requireNonNull(event.getClickedBlock())).getLocation(), 3.5F);
         }
 
         if (event.getAction() == Action.RIGHT_CLICK_AIR && Objects.equals(((ItemStack) Objects.requireNonNull(event.getItem())).getItemMeta(),
                 ItemManager.wand.getItemMeta())) {
             player = event.getPlayer();
             Fireball fire = player.getWorld().spawn(event.getPlayer().getLocation().add(new Vector(0.0D, 1.5D, 0.0D))
-                    .add(Utilities.offsetFromDirection(player, 1.1D)), Fireball.class);
+                    .add(player.getVelocity()), Fireball.class);
             fire.setFireTicks(0);
             fire.setShooter(player);
         }
@@ -104,7 +104,7 @@ public class Events implements Listener {
             Player player = event.getPlayer();
             event.setCancelled(true);
             for (Player p : Bukkit.getOnlinePlayers()) {
-                p.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 40, 29);
+                p.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 25, 25);
             }
         }
     }

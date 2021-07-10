@@ -80,12 +80,12 @@ public class Utilities {
             }
             case ("kill") -> { // Describing player kills
                 String[] killDescription = {"brutally murdered", "slaughtered", "booty clapped", "massacred", "slayed", "shitted on", "waffle stomped",
-                        "cummed on", "dookie'ed on", "360 OOGA BOOGA BOOGA'ED", "murked"};
+                        "cummed on", "dookie'ed on", "360 OOGA BOOGA BOOGA'ED", "murked", "killed"};
                 return killDescription[new Random().nextInt(killDescription.length)];
             }
             case ("death") -> { // Describing deaths (not including PVP)
                 String[] deathDescription = {"your own stupidity", "the de-evolution of the human species", "lack of skill", "incompetence",
-                        "not getting gooder", "being dogwater", "not having any earnings"};
+                        "not getting gooder", "being dogwater", "not having any earnings", "politics"};
                 return deathDescription[new Random().nextInt(deathDescription.length)];
             }
         }

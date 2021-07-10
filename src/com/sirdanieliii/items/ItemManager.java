@@ -25,15 +25,15 @@ public class ItemManager {
         assert meta != null;
 
         meta.setDisplayName("§6§LWand");
-        List<String> lore = new ArrayList();
+        List<String> lore = new ArrayList<String>();
         lore.add("§EThey who hold this wand ");
         lore.add("§Ecannot comprehend its full power...");
         meta.setLore(lore);
-        meta.addEnchant(Enchantment.DAMAGE_ALL, 15, true);
-        meta.addEnchant(Enchantment.KNOCKBACK, 12, true);
+        meta.addEnchant(Enchantment.DAMAGE_ALL, 80, true);
+        meta.addEnchant(Enchantment.KNOCKBACK, 25, true);
         meta.addEnchant(Enchantment.FIRE_ASPECT, 10, true);
         meta.addEnchant(Enchantment.LOOT_BONUS_MOBS, 5, true);
-        meta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ENCHANTS});
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(meta);
         wand = item;
     }
