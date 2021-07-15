@@ -29,15 +29,19 @@ public class ivanDonkey extends SubCommand {
 
     @Override
     public void perform(Player player, String[] args) {
-        Vector offset = offsetFromDirection(player, 2.0D); // Calculates 2 block forward offset
-        Donkey donkey = (Donkey) player.getWorld().spawnEntity(player.getLocation().add(offset), EntityType.DONKEY);
-        donkey.setTamed(true);
-        donkey.setOwner(player);
-        donkey.setCustomName("Ivan");
-        donkey.getInventory().setSaddle(new ItemStack(Material.SADDLE));
-        donkey.setCarryingChest(true);
-        donkey.setJumpStrength(0.75F);
-        player.playSound(player.getLocation(), Sound.ENTITY_DONKEY_AMBIENT, 1, 1);
-        player.sendMessage("§B[§FIvan§B] §FYou have spawned a stoopid Ivan!");
+        if (!player.isOp()) {
+            player.sendMessage("§C[!] Sorry, but only operators can use this command");
+        } else {
+            Vector offset = offsetFromDirection(player, 2.0D); // Calculates 2 block forward offset
+            Donkey donkey = (Donkey) player.getWorld().spawnEntity(player.getLocation().add(offset), EntityType.DONKEY);
+            donkey.setTamed(true);
+            donkey.setOwner(player);
+            donkey.setCustomName("Ivan");
+            donkey.getInventory().setSaddle(new ItemStack(Material.SADDLE));
+            donkey.setCarryingChest(true);
+            donkey.setJumpStrength(0.75F);
+            player.playSound(player.getLocation(), Sound.ENTITY_DONKEY_AMBIENT, 1, 1);
+            player.sendMessage("§B[§FIvan§B] §FYou have spawned a stoopid Ivan!");
+        }
     }
 }

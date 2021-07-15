@@ -28,14 +28,19 @@ public class ivanDog extends SubCommand {
 
     @Override
     public void perform(Player player, String[] args) {
-        Vector offset = offsetFromDirection(player, 2.0D); // Calculates 2 block forward offset
-        Wolf wolf = (Wolf) player.getWorld().spawnEntity(player.getLocation().add(offset), EntityType.WOLF);
-        wolf.setTamed(true);
-        wolf.setOwner(player);
-        wolf.setCustomName("Ivan");
-        wolf.setCollarColor(DyeColor.LIGHT_BLUE);
-        wolf.setSitting(true);
-        player.playSound(player.getLocation(), Sound.ENTITY_WOLF_PANT, 1, 1);
-        player.sendMessage("§B[§FIvan§B] §FYou have spawned a little Ivan!");
+        if (!player.isOp()) {
+            player.sendMessage("§C[!] Sorry, but only operators can use this command");
+        } else {
+            Vector offset = offsetFromDirection(player, 2.0D); // Calculates 2 block forward offset
+            Wolf wolf = (Wolf) player.getWorld().spawnEntity(player.getLocation().add(offset), EntityType.WOLF);
+            wolf.setTamed(true);
+            wolf.setOwner(player);
+            wolf.setCustomName("Ivan");
+            wolf.setCollarColor(DyeColor.LIGHT_BLUE);
+            wolf.setSitting(true);
+            player.playSound(player.getLocation(), Sound.ENTITY_WOLF_PANT, 1, 1);
+            player.sendMessage("§B[§FIvan§B] §FYou have spawned a little Ivan!");
+        }
     }
 }
+

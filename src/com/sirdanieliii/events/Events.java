@@ -18,6 +18,7 @@ import org.bukkit.util.Vector;
 import java.util.Objects;
 
 import static com.sirdanieliii.configuration.PlayerData.createPlayerSections;
+import static com.sirdanieliii.events.Utilities.offsetFromDirection;
 import static com.sirdanieliii.events.Utilities.randomMessage;
 
 public class Events implements Listener {
@@ -103,6 +104,8 @@ public class Events implements Listener {
         if (event.getCause() == PlayerTeleportEvent.TeleportCause.END_PORTAL) {
             Player player = event.getPlayer();
             event.setCancelled(true);
+            Bukkit.broadcastMessage("§4§LGOD DISAPPROVES OF THIS BEHAVIOUR");
+            player.getWorld().strikeLightning(player.getLocation().add(offsetFromDirection(player, 5.0D)));
             for (Player p : Bukkit.getOnlinePlayers()) {
                 p.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 25, 25);
             }
