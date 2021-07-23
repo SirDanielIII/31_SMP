@@ -60,7 +60,7 @@ public class Utilities {
                         "an orangutan", "breathing", player.getDisplayName(), "the one who knocks", "a cyka blyat", "the ring Daniel will give Sophia",
                         "a donkey", "not Best Boy", "the ring Forrest will give Billie", "a toaster", "the imposter", "an absolute chad",
                         "a hot tub streamer", "not deserving of an insult", "not wearing socks", "a silly little goose", "aware that they poop",
-                        "awesome", "racist", "adopted", "a poopyhead"};
+                        "awesome", "racist", "adopted", "a poopyhead", "awesomesauce", "not intelligent"};
                 return joinMessages[new Random().nextInt(joinMessages.length)];
             }
             case ("quit") -> {
@@ -68,7 +68,7 @@ public class Utilities {
                         "quit the game", "went to find their dad at the grocery store", "looked at Ivan Rule 34 and left", "left the game",
                         "didn't want to play anymore", "liked men and ran away", "§KLISD FH DFZIO UGHDRIO", "went to go kiss Shrek's big green ballsack",
                         "was cringe and left", "went to go get graphed as a sin function", "clapped themself", "got cancelled", "went to go take a shit",
-                        "went to go become vegan"};
+                        "went to go become vegan", "went to go play Fortnite", "got a life", "was kidnapped by Monika"};
                 return quitMessages[new Random().nextInt(quitMessages.length)];
             }
             case ("sleep") -> {
@@ -76,7 +76,7 @@ public class Utilities {
                         "initiated hibernation", "started snoozing like a chad", "gone out like a lamp", "started crying themselves to sleep",
                         "remembered that they are an orphan, \nand is now sleeping while contemplating the meaning of life", "started sleeping",
                         "started dreaming of how dogwater they are at Fortnite", "started napping", "started dreaming", "started having a nightmare",
-                        "start dreaming about getting a girlfriend", "wandered off to bed", "started to sleep"};
+                        "start dreaming about getting a girlfriend", "wandered off to bed", "started to sleep", "died of exhaustion", "collapsed"};
                 return sleepMessage[new Random().nextInt(sleepMessage.length)];
             }
             case ("kill") -> { // Describing player kills

@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.PlayerDeathEvent;
@@ -24,8 +25,8 @@ import static com.sirdanieliii.events.Utilities.randomMessage;
 public class Events implements Listener {
     @EventHandler
     public void onServerListPing(ServerListPingEvent event) {
-        event.setMotd("           §6§L31 SMP §F[§A1.17§F] §F[§CWHITELIST ONLY§F]" +
-                "\n§E    ▷ With Proximity Chat & Bedrock Support ◁");
+        event.setMotd("        §6§L31 SMP §F[§A1.17-1.17.1§F] §F[§CWHITELIST ONLY§F]" +
+                "\n§E   ▷ With Proximity Chat & New Cave Generation ◁");
     }
 
     @EventHandler
@@ -105,7 +106,7 @@ public class Events implements Listener {
             Player player = event.getPlayer();
             event.setCancelled(true);
             Bukkit.broadcastMessage("§4§LGOD DISAPPROVES OF THIS BEHAVIOUR");
-            player.getWorld().strikeLightning(player.getLocation().add(offsetFromDirection(player, 5.0D)));
+            player.getWorld().strikeLightning(player.getLocation());
             for (Player p : Bukkit.getOnlinePlayers()) {
                 p.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 25, 25);
             }
