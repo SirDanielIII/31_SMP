@@ -10,3 +10,5 @@ Features:
 
 Note:
 This plugin disables the use of End Portals (it's not a bug, it's a feature 😌)
+
+![31 SMP Logo](https://user-images.githubusercontent.com/75279704/142717513-519b8248-ec4f-42ad-b91c-46564886370c.png)
