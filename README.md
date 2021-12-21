@@ -1,4 +1,4 @@
-# 31_SMP
+# 31_SMP (Discontinued)
 My personal plugin for the 31 SMP server I've been planning with my friends.
 
 Features: 
